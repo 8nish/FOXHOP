@@ -1,123 +1,108 @@
-🦊 Fox Hop
-Fox Hop is a 2D side-scrolling platformer game developed in Unity. In this game, you control a fox that can run, jump, shoot fireballs, and explore vibrant pixel environments while avoiding traps and defeating enemies. The game features responsive controls, smooth animations, AI enemies, a dynamic camera system, and multiple levels designed to provide fun and challenge.
+# 🦊 Fox Hop
 
-🎮 Features
-🕹️ Movement
-Horizontal movement based on player input
+**Fox Hop** is a 2D side-scrolling platformer game developed in Unity. You control a fox that can run, jump, shoot fireballs, and explore charming pixel environments while avoiding traps and defeating enemies. Featuring responsive controls, smooth animations, AI enemies, a dynamic camera system, and multiple levels — *Fox Hop* is built for fun and challenge.
 
-Ground and wall jumping with distinct physics and gravity
+---
 
-Directional facing and animation transitions based on input
+## 🎮 Features
 
-Rigidbody2D, Animator, and BoxCollider2D integration
+### 🕹️ Movement
+- Player-controlled horizontal movement using Rigidbody2D
+- Distinct **ground** and **wall jumping** with gravity tuning
+- Directional flipping and animation transitions
+- Jump and movement mechanics enabled via `PlayerMovement.cs`
 
-🔥 Shooting
-Fireball projectile system using object pooling for efficiency
+### 🔥 Shooting
+- Fireball attack using **object pooling** for performance
+- Attack logic triggered on mouse input (`GetMouseButton(0)`)
+- Cooldown mechanics for balanced gameplay
+- Fireball direction matches fox facing and position
+- Uses `FindFireball()` to select available fireball from the pool
 
-Attack cooldown mechanics to ensure balanced combat
+### 🎞️ Animation
+- Animator Controller with states: `Idle`, `Run`, `Jump`, `Attack`, `Get Hurt`, `Die`
+- Transitions designed for smooth and reactive gameplay
+- "Any State" transitions for jumping and attacks
+- Visual feedback on damage and death through animations
 
-Animated attack sequences and directional shooting
+### 🖼️ Graphics
+- 🎨 **Asset packs used**:
+  - [Sunny Land](https://assetstore.unity.com/packages/2d/environments/sunny-land-103349) – vibrant terrain and tiles
+  - [Knight Sprite Sheet Free](https://craftpix.net/freebies/free-pixel-art-knight-sprites/) – medieval-style enemies
+  - [Pixel Adventure 1](https://ansimuz.itch.io/pixel-adventure-1) – unique pixel props and environmental variety
+- Carefully curated to ensure consistency in theme and tone
 
-🎞️ Animation
-Animator controller with state transitions for:
-Idle, Run, Jump, Attack, Get Hurt, and Die
+### 🎥 Camera
+- Dynamic camera follow using `CameraController.cs`
+- Anticipatory "look ahead" logic for smooth navigation
+- Adjustable parameters: `aheadDistance`, `cameraSpeed`
+- Real-time tracking based on player velocity
 
-Smooth transitions using Unity's "Any State" mechanism
+### ❤️ Health System
+- `Health.cs` and `HPBAR.cs` manage health logic and UI
+- Damage triggers animation and reduces health
+- Character death disables movement and enemy patrol logic
+- Respawn and full health handled via `Respawn1.cs`
 
-Visual feedback animations for damage and death events
+### 🛡️ Enemy AI
+- `EnemyPatrol.cs` controls back-and-forth patrol between boundaries
+- `KnightEnemy.cs` handles detection and attack behavior
+- Configurable patrol speed and wait time
+- Adds realism and dynamic challenge to each level
 
-🖼️ Graphics
-Assets from:
+---
 
-Sunny Land – vibrant and charming environment tiles
+## 🔧 Technologies Used
 
-Knight Sprite Sheet Free – medieval-themed enemies
+- **Unity Engine (C#)**
+- **Rigidbody2D**, **Animator**, and **Collider Components**
+- Object Pooling for optimized projectile management
+- Custom Scripts for AI, Camera, Health, and Input Systems
 
-Pixel Adventure 1 – additional props and diversity in visuals
+---
 
-Carefully chosen pixel art assets to build a coherent world
+## 🧠 Development Insights
 
-🎥 Camera
-Dynamic camera system using a CameraController script
+### Key Learnings:
+- 🎯 Player movement and state transition fine-tuning
+- ⚙️ Shooting mechanics and projectile object pooling
+- 🎨 Level design with modular pixel assets
+- 🤖 AI patrol logic for enemy behavior
+- 🎥 Camera smoothing and look-ahead implementation
 
-Smooth follow mechanics with look-ahead and anticipation
+### Challenges Overcome:
+- Complex animation transitions (e.g., run → jump → attack)
+- Smooth and responsive camera logic
+- Ensuring visual consistency across different asset packs
 
-Adjustable speed and distance parameters for cinematic feel
+### Useful Practices:
+- Use of `[SerializeField]` to expose private variables in Unity Inspector  
+  [Unity Forum Reference](https://discussions.unity.com/t/when-to-use-serializefield-and-why/506330)
+- Modular script design for ease of testing and debugging
+- Balancing gameplay through cooldowns, damage logic, and hit animations
 
-❤️ Health System
-Fully functional health logic using Health and HPBAR scripts
+---
 
-Damage detection, animation triggers, and respawn logic
+## 📦 Assets & References
 
-UI-based health display to reflect current player status
+| Purpose       | Link |
+|---------------|------|
+| SerializeField Guide | [Unity Forum](https://discussions.unity.com/t/when-to-use-serializefield-and-why/506330) |
+| Acorn Art | [Freepik Pixel Acorn](https://img.freepik.com/premium-vector/pixel-art-acorn-game-asset-design_466450-1990.jpg) |
+| Tiles Tutorial | [YouTube Video](https://youtu.be/RVU9qdYL240?si=sHeNGHWYgAsdb2Ai) |
+| Game Dev Channel | [PandemoniumGameDev](https://www.youtube.com/@PandemoniumGameDev) |
 
-🛡️ Enemy AI
-EnemyPatrol script to handle enemy movement between boundaries
+---
 
-KnightEnemy for combat behavior
+## 🙌 Special Thanks
 
-Adjustable patrol speed and wait time
+Big thanks to **[PandemoniumGameDev](https://www.youtube.com/@PandemoniumGameDev)** on YouTube for tutorials and insights into Unity controls, tilemaps, and general best practices. Their channel was a major resource throughout development.
 
-Enhances realism and interaction in game environments
+---
 
-🔧 Technologies Used
-Unity with C#
+## 🏁 Final Thoughts
 
-Animator Controller and Rigidbody2D
+Building *Fox Hop* was an exciting and fulfilling learning experience. From mastering animation states to building a working AI patrol system, I’ve gained valuable knowledge in Unity development, optimization, and creative design. Every obstacle helped sharpen my skills — and I look forward to expanding on this project and building even more dynamic games in the future.
 
-Object Pooling for optimized shooting
+---
 
-Pixel Art assets and environment design
-
-✍️ Development Insights
-Working on Fox Hop gave me hands-on experience across all facets of game development, including:
-
-Designing fluid player controls and animations
-
-Implementing combat systems and attack feedback
-
-Building interactive environments with strategic asset selection
-
-Handling enemy AI and patrol logic for immersive challenges
-
-Integrating serialization ([SerializeField]) for better inspector control
-
-I overcame significant challenges in:
-
-Character animation transitions (especially between running, jumping, and attacking)
-
-Building a responsive camera system that enhances the gameplay experience
-
-Creating a visually cohesive pixel art world from multiple asset sources
-
-🧠 Lessons Learned
-Understanding and applying SerializeField to expose private variables in Unity Inspector
-
-Using object pooling to optimize performance with frequent object instantiation
-
-Designing modular scripts for movement, shooting, health, and enemy AI
-
-Leveraging tutorials and community forums to troubleshoot and iterate
-
-🎨 Assets & References
-Sunny Land Pack
-
-Knight Sprite Sheet Free
-
-Pixel Adventure 1
-
-SerializeField Unity Forum
-
-Acorn Game Asset
-
-Tiles Tutorial (YouTube)
-
-Pandemonium Game Dev Channel
-
-🙌 Special Thanks
-Huge thanks to the PandemoniumGameDev channel for insightful tutorials on Unity controls and mechanics. Their content helped me navigate many development hurdles and inspired key systems in Fox Hop.
-
-🏁 Final Thoughts
-Fox Hop has been a rewarding journey from idea to execution. It strengthened my understanding of Unity development, asset integration, animation systems, and real-time gameplay logic. I’m proud of what I’ve built and excited to apply these lessons in future game projects.
-
-Let me know if you'd like to turn this into a GitHub project with badges, images/gifs of gameplay, or a license section.
